@@ -1,0 +1,4 @@
+9/29/2021, 9:27:44 AM|NodeJS Integration PM|info|Success Authentication ORM sequelize
+9/29/2021, 9:27:44 AM|NodeJS Integration PM|info|Success Sync ORM Sequelize
+9/29/2021, 6:03:49 PM|NodeJS Integration PM|error|Error Connect Database SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+9/29/2021, 6:03:49 PM|NodeJS Integration PM|error|Error Sync ORM Sequelize SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306

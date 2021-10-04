@@ -1,0 +1,10 @@
+10/2/2021, 11:39:59 AM|NodeJS Integration PM|error|type: System , error:Error Connect Database SequelizeConnectionError: (conn=-1, no: 45012, SQLState: 08S01) Connection timeout: failed to create socket after 10001ms
+10/2/2021, 11:39:59 AM|NodeJS Integration PM|error|type: System , error:Error Sync ORM Sequelize SequelizeConnectionError: (conn=-1, no: 45012, SQLState: 08S01) Connection timeout: failed to create socket after 10001ms
+10/2/2021, 11:45:13 AM|NodeJS Integration PM|info|Success Authentication ORM sequelize
+10/2/2021, 11:45:13 AM|NodeJS Integration PM|info|Success Sync ORM Sequelize
+10/2/2021, 12:16:01 PM|NodeJS Integration PM|info|Success Authentication ORM sequelize
+10/2/2021, 12:16:01 PM|NodeJS Integration PM|info|Success Sync ORM Sequelize
+10/2/2021, 12:17:47 PM|NodeJS Integration PM|info|Success Authorization token generate :eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoibmV2ZXJtb3JlIiwiaWF0IjoxNjMzMTk1MDY3LCJleHAiOjE2MzMxOTg2Njd9.tONBo-8rMnybMqle5Hsu5Dguf-qUsLxCqrsKDbwNcV8
+10/2/2021, 12:20:54 PM|NodeJS Integration PM|info|Success Update devices
+10/2/2021, 12:21:12 PM|NodeJS Integration PM|error|type: validateSchema , error:Error validate SchemaDevices "[0].monitoring" is required
+10/2/2021, 12:22:21 PM|NodeJS Integration PM|info|Success Update devices
