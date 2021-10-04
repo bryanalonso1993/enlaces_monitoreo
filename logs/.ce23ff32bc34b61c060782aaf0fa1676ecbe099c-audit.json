@@ -24,6 +24,11 @@
             "date": 1633192789647,
             "name": "logs/logApplicationRotate-2021-10-02.log",
             "hash": "a940ce1839ac8be65ecf08af96c8a8b6"
+        },
+        {
+            "date": 1633355490062,
+            "name": "logs/logApplicationRotate-2021-10-04.log",
+            "hash": "38a34ef38c481337d7c408f5af129d1f"
         }
     ]
 }

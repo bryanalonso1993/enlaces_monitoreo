@@ -1,9 +1,9 @@
 const captureErrors = require('./captureErrors');
 const endpoints = require('./endpoints');
-const requests = require('./requests');
+const filesystem = require('./filesystem');
 
 module.exports = {
     captureErrors,
     endpoints,
-    requests
+    filesystem
 }

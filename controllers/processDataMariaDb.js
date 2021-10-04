@@ -5,11 +5,6 @@ const { request, response } = require('express');
 const { captureErrors } = require('../helpers');
 
 /**
- * Db
- */
-const connection = require('../db/connection');
-
-/**
  * Models
  */
 const { devices, interfaces, thresholds, dashboardView } = require('../db/models')
@@ -80,7 +75,7 @@ exports.insertInterfaces = (req=request, res=response) => {
     })
     .then( () => {
         logger.log({ level: 'info', message: `Sucessfull Bulk data interface process ${JSON.stringify(interfaceList)}` });
-        res.status(200).json({ message: "Success register interfaces" }); 
+        res.status(200).json({ message: "Success register interfaces" });
     })
     .catch( e => {
         captureErrors('BulkProcess', `Error Bulk Data Process Interfaces ${e}`);

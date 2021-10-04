@@ -27,5 +27,5 @@ process.env.APIUSRPM = "usrpmauth";
 process.env.APIPWDPM = "Pepito123";
 process.env.APIPORTPM = 8581;
 
-// endpoing grafana
-process.env.GRAFANASERVER = "http://10.95.164.101";
+// endpoint grafana
+process.env.GRAFANASERVER = "http://10.95.164.101:3000";

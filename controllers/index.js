@@ -1,9 +1,9 @@
-const processDataApi = require('./processDataApi');
+const processData = require('./processData');
 const processDataAuth = require('./processDataAuth');
 const processDataMariaDb = require('./processDataMariaDb');
 
 module.exports = {
-    processDataApi,
+    processData,
     processDataAuth,
     processDataMariaDb
 }

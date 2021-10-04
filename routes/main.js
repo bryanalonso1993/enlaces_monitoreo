@@ -9,7 +9,7 @@ const { validateSchema, validateToken } = require('../middlewares');
 /**
  * controllers
  */
-const { processDataAuth, processDataMariaDb } = require('../controllers');
+const { processDataAuth, processDataMariaDb, processData } = require('../controllers');
 
 module.exports = function () {
     /** Metodos POST */
@@ -21,6 +21,7 @@ module.exports = function () {
     /** Metodos GET */
     router.get('/interfaces', validateSchema.validateSchemaToken, validateToken, validateSchema.validateDeviceName, processDataMariaDb.getInterfaces);
     router.get('/devices', validateSchema.validateSchemaToken, validateToken, processDataMariaDb.getDevices);
+    router.get('/query/:method/', processData);
     /** Metodos DELETE */
     router.delete('/devices', validateSchema.validateSchemaToken, validateToken, validateSchema.validateDeviceName, processDataMariaDb.deleteDevices);
     router.delete('/interfaces', validateSchema.validateSchemaToken, validateToken, validateSchema.validateSchemaInterface, processDataMariaDb.deleteInterfaces);
