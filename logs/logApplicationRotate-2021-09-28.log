@@ -1,6 +1,0 @@
-9/28/2021, 12:29:48 AM|NodeJS Integration PM|info|Success Authentication ORM sequelize
-9/28/2021, 12:29:48 AM|NodeJS Integration PM|info|Success Sync ORM Sequelize
-9/28/2021, 12:30:08 AM|NodeJS Integration PM|info|Success Authorization token generate :eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoibmV2ZXJtb3JlIiwiaWF0IjoxNjMyODA3MDA4LCJleHAiOjE2MzI4MTA2MDh9.eRlTAMtX5XvyrpkjB8jWPBcGL2Bt2iu1IraGd-gVRYg
-9/28/2021, 12:30:49 AM|NodeJS Integration PM|error|Error validate SchemaToken "token" is required
-9/28/2021, 1:14:56 AM|NodeJS Integration PM|info|Success Authentication ORM sequelize
-9/28/2021, 1:14:56 AM|NodeJS Integration PM|info|Success Sync ORM Sequelize
