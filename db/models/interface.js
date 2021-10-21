@@ -1,7 +1,7 @@
 const connection = require('../connection');
 const { DataTypes } = require('sequelize');
 
-const interfaces = connection.define('interfaces', {
+const interface = connection.define('interfaces', {
     deviceName: {
         type: DataTypes.STRING(255),
         allowNull: false,
@@ -9,6 +9,18 @@ const interfaces = connection.define('interfaces', {
     interface: {
         type: DataTypes.STRING(255),
         allowNull: false
+    },
+    max: {
+        type: DataTypes.BIGINT,
+        allowNull: false
+    },
+    min:{
+        type: DataTypes.BIGINT,
+        allowNull: false
+    },
+    endpoint:{
+        type: DataTypes.TEXT('long'),
+        allowNull: true
     },
     uid:{
         type: DataTypes.STRING(255),
@@ -19,4 +31,4 @@ const interfaces = connection.define('interfaces', {
     freezeTableName: true
 })
 
-module.exports = interfaces;
+module.exports = interface;

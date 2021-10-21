@@ -1,14 +1,7 @@
 const devices = require('./devices');
-const interfaces = require('./interfaces');
-const categories = require('./categories');
-const thresholds = require('./thresholds');
-const dashboardView = require('./dashboardView');
-
+const interface = require('./interface');
 
 module.exports = {
     devices,
-    interfaces,
-    categories,
-    dashboardView,
-    thresholds
+    interface
 }
