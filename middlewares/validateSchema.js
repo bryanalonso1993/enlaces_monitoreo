@@ -1,12 +1,10 @@
 const Joi = require('joi');
-const logger = require('../config/logger');
 const { request, response } = require('express');
 
 /**
- * Errores 
+ * Errores
  */
 const { captureErrors } = require('../helpers');
-
 const typeValidation = 'validateSchema';
 
 exports.validateSchemaToken = (req=request, res=response, next) => {
@@ -17,7 +15,7 @@ exports.validateSchemaToken = (req=request, res=response, next) => {
     const { error } = schema.validate({ token });
     if (error) {
         captureErrors(typeValidation, `Error validate SchemaToken ${ error.details[0].message }`);
-        throw res.status(500).json({ error: error });
+        throw res.status(500).json({ error: error?.details[0]?.message });
     }
     next();
 }
@@ -35,10 +33,11 @@ exports.validateSchemaObjectDevices = (req=request, res=response, next) => {
     const { error } = schemaArray.validate(arrayDevices);
     if (error) {
         captureErrors(typeValidation, `Error validate SchemaDevices ${ error.details[0].message }`);
-        throw res.status(500).json({ error: error });
+        throw res.status(500).json({ error: error?.details[0]?.message });
     }
     next();
 }
+
 /*
     validacion para eliminar el device de la base de datos
 */
@@ -51,56 +50,55 @@ exports.validateDeviceName = (req=request, res=response, next) => {
     const { error } = schemaArray.validate(arrayDeviceName);
     if ( error ) {
         captureErrors(typeValidation, `Error validate DeviceName ${ error.details[0].message }`);
-        throw res.status(500).json({ error: error });
+        throw res.status(500).json({ error: error?.details[0]?.message});
     }
     next();
 }
 
-exports.validateSchemaInterface = (req=request, res=response, next) => {
-    const arrayInterfaceList  = req.body;
+exports.validateSchemaUpdateInterface = (req=request, res=response, next) => {
+    const arrayData = req.body;
+    const schema = Joi.object().keys({
+        deviceName: Joi.string().required(),
+        interface: Joi.string().required(),
+        max: Joi.number().required(),
+        min: Joi.number().required(),
+        endpoint: Joi.string().required()
+    });
+    const schemaArray = Joi.array().items(schema);
+    const { error } = schemaArray.validate(arrayData);
+    if ( error ) {
+        captureErrors(typeValidation, `Error validate Interface list ${ error.details[0].message }`);
+        throw res.status(500).json({ error: error?.details[0]?.message });
+    }
+    next();
+}
+
+exports.validateSchemaDropInterface = (req=request, res=response, next) => {
+    const arrayData = req.body;
     const schema = Joi.object().keys({
         deviceName: Joi.string().required(),
         interface: Joi.string().required()
     });
     const schemaArray = Joi.array().items(schema);
-    const { error } = schemaArray.validate(arrayInterfaceList);
+    const { error } = schemaArray.validate(arrayData);
     if ( error ) {
         captureErrors(typeValidation, `Error validate Interface list ${ error.details[0].message }`);
-        throw res.status(500).json({ error: error });
+        throw res.status(500).json({ error: error?.details[0]?.message });
     }
     next();
 }
 
-
-exports.validateSchemaThresholds = (req=request, res=response, next) => {
-    const arrayInterfaceThresholds  = req.body;
-    const schema = Joi.object().keys({
-        deviceName: Joi.string().required(),
-        interface: Joi.string().required(),
-        max: Joi.number().required(),
-        min: Joi.number().required()
-    });
-    const schemaArray = Joi.array().items(schema);
-    const { error } = schemaArray.validate(arrayInterfaceThresholds);
-    if ( error ) {
-        captureErrors(typeValidation, `Error validate Interface list ${ error.details[0].message }`);
-        throw res.status(500).json({ error: error });
-    }
-    next();
-}
-
-exports.validateSchemaView = (req=request, res=response, next) => {
+exports.validateSchemaQueryDb = (req=request, res=response, next) => {
     const arrayData = req.body;
     const schema = Joi.object().keys({
         deviceName: Joi.string().required(),
-        interface: Joi.string().required(),
-        endpoint: Joi.string().required()
+        interfaces: Joi.array().items(Joi.string()).required()
     });
     const schemaArray = Joi.array().items(schema);
     const { error } = schemaArray.validate(arrayData);
     if (error) {
-        captureErrors(typeValidation, `Error validate SchemaView ${ error.details[0].message }`);
-        throw res.status(500).json({ error: error });
+        captureErrors(typeValidation, `Error validate SchemaQueryDb ${ error.details[0].message }`);
+        throw res.status(500).json({ error: error?.details[0]?.message });
     }
     next();
 }

@@ -7,12 +7,6 @@ const logger =  require('../config/logger');
  */
 const { captureErrors } = require('../helpers');
 
-
-/**
- * Authentication
- */
-require('../config/config');
-
 module.exports = (req=request, res=response) => {
     // const { username, password } = req.body;
     if (!(req.path === '/authentication')) throw res.status(401).json({ error: 'Bad Route'});
@@ -29,7 +23,7 @@ module.exports = (req=request, res=response) => {
     const base64Credentials =  req.headers.authorization.split(' ')[1];
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
     const [username, password] = credentials.split(':');
-    if ( username === process.env.USERAPI && password === process.env.PASSAPI)
+    if ( username === process.env.USER_API && password === process.env.PASS_API)
     {
         const token = jwt.sign({
             data: username

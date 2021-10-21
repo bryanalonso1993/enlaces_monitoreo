@@ -1,7 +1,7 @@
 /**
  * importando el objeto
  */
-const Server = require('./server/server');
+const Server = require('./server/Server');
 /**
  * instanciar el servidor
  */

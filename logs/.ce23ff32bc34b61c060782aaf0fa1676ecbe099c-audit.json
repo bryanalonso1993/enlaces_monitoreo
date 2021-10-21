@@ -6,14 +6,9 @@
     "auditLog": "logs/.ce23ff32bc34b61c060782aaf0fa1676ecbe099c-audit.json",
     "files": [
         {
-            "date": 1633192789647,
-            "name": "logs/logApplicationRotate-2021-10-02.log",
-            "hash": "a940ce1839ac8be65ecf08af96c8a8b6"
-        },
-        {
-            "date": 1633355490062,
-            "name": "logs/logApplicationRotate-2021-10-04.log",
-            "hash": "38a34ef38c481337d7c408f5af129d1f"
+            "date": 1634836970031,
+            "name": "logs/logApplicationRotate-2021-10-21.log",
+            "hash": "2133ecfb05515d3611ff4e97b2d0bd97"
         }
     ]
 }

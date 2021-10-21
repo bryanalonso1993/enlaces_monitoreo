@@ -1,7 +1,6 @@
 /**
  * parametros de conexion a la base de datos
  */
-require('../config/config');
 const { Sequelize } = require('sequelize');
 const logger = require('../config/logger');
 
@@ -10,10 +9,10 @@ const logger = require('../config/logger');
  */
 const { captureErrors } = require('../helpers');
 
-const sequelize = new Sequelize(process.env.DB, process.env.USERDB, process.env.PASSDB, {
-    host: process.env.HOSTDB,
-    dialect: process.env.ENGINEDB,
-    port: process.env.PORTDB,
+const sequelize = new Sequelize(process.env.DB, process.env.USER_DB, process.env.PASS_DB, {
+    host: process.env.HOST_DB,
+    dialect: process.env.ENGINE_DB,
+    port: process.env.PORT_DB,
     timezone: 'America/Lima',
     define:{
         charset: 'utf8',
