@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "NODE_ENV=production node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bryan Alonso Almeyda Contreras - Integrator NodeJS",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",

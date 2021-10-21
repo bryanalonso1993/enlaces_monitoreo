@@ -22,6 +22,7 @@ class Server{
     enviroments() {
         const dotenv = require('dotenv').config({ path: './config/.env'});
         if (dotenv.error){ throw dotenv.error }
+        console.log(dotenv.parsed);
     }
     middlewares(){
         this.app.use(express.json());
