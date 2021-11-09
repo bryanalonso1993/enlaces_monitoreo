@@ -9,7 +9,7 @@ const { validateSchema, validateToken } = require('../middlewares');
 /**
  * controllers
  */
-const { processDataAuth, controllerApiPM, controllerDb } = require('../controllers');
+const { processDataAuth, controllerApiPM, controllerDb, controllerTest } = require('../controllers');
 
 
 module.exports = function () {
@@ -28,6 +28,7 @@ module.exports = function () {
     // metodos de consulta del api
     router.get('/api/devices', validateSchema.validateSchemaToken, controllerApiPM.getDevicesApi);
     router.get('/api/interface', validateSchema.validateSchemaToken, controllerApiPM.getIntefacesApi);
+    router.get('/test/:source/devices', controllerTest);
     /** Metodos DELETE */
     router.delete('/devices', validateSchema.validateSchemaToken, validateToken, validateSchema.validateDeviceName, controllerDb.deleteDevices);
     router.delete('/interfaces', validateSchema.validateSchemaToken, validateToken, validateSchema.validateSchemaDropInterface, controllerDb.deleteInterface);

@@ -8,7 +8,6 @@ module.exports = (req=request, res=response, next) => {
     jwt.verify(token, process.env.SEED, function (err, decoded){
         if (err) {
             captureErrors("Token", `Error Validate Access Token ${err}`);
-            //logger.log({ level: 'error', message: `Error Authentication ${err}`});
             throw res.status(400).json(`Error validate Authentication ${err}`);
         }
         next();

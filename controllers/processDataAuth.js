@@ -8,7 +8,6 @@ const logger =  require('../config/logger');
 const { captureErrors } = require('../helpers');
 
 module.exports = (req=request, res=response) => {
-    // const { username, password } = req.body;
     if (!(req.path === '/authentication')) throw res.status(401).json({ error: 'Bad Route'});
     /**
      * Basic Authentication
