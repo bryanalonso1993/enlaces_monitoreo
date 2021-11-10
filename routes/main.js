@@ -9,7 +9,7 @@ const { validateSchema, validateToken } = require('../middlewares');
 /**
  * controllers
  */
-const { processDataAuth, controllerApiPM, controllerDb, controllerTest } = require('../controllers');
+const { processDataAuth, controllerApiPM, controllerDb, controllerApiOPM } = require('../controllers');
 
 
 module.exports = function () {
@@ -26,9 +26,12 @@ module.exports = function () {
     router.get('/query/api', validateSchema.validateSchemaToken, validateToken, validateSchema.validateSchemaQueryDb, controllerApiPM.getMetricApiPM);
     router.get('/query/db', validateSchema.validateSchemaToken, validateToken, validateSchema.validateSchemaQueryDb, controllerDb.getMetricDbInterface);
     // metodos de consulta del api
-    router.get('/api/devices', validateSchema.validateSchemaToken, controllerApiPM.getDevicesApi);
-    router.get('/api/interface', validateSchema.validateSchemaToken, controllerApiPM.getIntefacesApi);
-    router.get('/test/:source/devices', controllerTest);
+    // OPM
+    router.get('/opm/devices', controllerApiOPM.getDevicesApi);
+    router.get('/opm/interfaces', controllerApiOPM.getInterfacesApi);
+    // PM
+    router.get('/pm/devices', controllerApiPM.getDevicesApi);
+    router.get('/pm/interfaces', controllerApiPM.getInterfacesApi);
     /** Metodos DELETE */
     router.delete('/devices', validateSchema.validateSchemaToken, validateToken, validateSchema.validateDeviceName, controllerDb.deleteDevices);
     router.delete('/interfaces', validateSchema.validateSchemaToken, validateToken, validateSchema.validateSchemaDropInterface, controllerDb.deleteInterface);

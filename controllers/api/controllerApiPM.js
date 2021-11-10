@@ -1,5 +1,11 @@
 const { request, response } = require('express');
-const { endpoints } = require('../../helpers');
+
+/**
+ * Ekastic APM Errores
+ */
+const { captureErrors, endpoints } = require('../../helpers');
+const eventDetailLog = 'APIPMRequest';
+
 /**
  * API
 */
@@ -7,12 +13,7 @@ const axios = require('axios').default;
 const encodedBase64 = Buffer.from(`${process.env.API_USR_PM}:${process.env.API_PWD_PM}`).toString('base64');
 const authorization = `Basic ${encodedBase64}`;
 const opts = { withCredentials: true, headers: {"Accept":"application/json", "Content-Type":"application/json", "Authorization": authorization}, timeout: 120000 };
-/**
- * Ekastic APM Errores
- */
 
-const { captureErrors } = require('../../helpers');
-const eventDetailLog = 'APIPMRequest';
 
 exports.getDevicesApi = async (req=request, res=response) => {
     await axios.get( endpoints.listDevices() , opts)
